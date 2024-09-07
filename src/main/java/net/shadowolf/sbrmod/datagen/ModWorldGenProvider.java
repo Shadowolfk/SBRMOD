@@ -1,10 +1,11 @@
-package net.shadowolf.sbrmod.datagen.loot;
+package net.shadowolf.sbrmod.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.shadowolf.sbrmod.worldgen.biome.ModBiomes;
 
 import java.util.Set;
