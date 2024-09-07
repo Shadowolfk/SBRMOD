@@ -40,7 +40,7 @@ public class ModBiomes {
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
         globalOverworldGeneration(biomeBuilder);
-        BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
+        //BiomeDefaultFeatures.addFossilDecoration(biomeBuilder); THIS CRASHES THE GAME
         BiomeDefaultFeatures.addExtraGold(biomeBuilder);
 
         //biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.TREES_PLAINS);
