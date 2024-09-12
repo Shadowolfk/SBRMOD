@@ -2,7 +2,9 @@ package net.shadowolf.sbrmod.worldgen.biome.surface;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.SurfaceRules;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraftforge.common.Tags;
 import net.shadowolf.sbrmod.block.ModBlocks;
 import net.shadowolf.sbrmod.worldgen.biome.ModBiomes;
@@ -20,10 +22,14 @@ public class ModSurfaceRules {
 
         SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(SurfaceRules.ifTrue(isAtOrAboveWaterLevel, GRASS_BLOCK), DIRT);
 
+        SurfaceRules.ConditionSource belowMaxYLevel = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(64), 0);
+
         return SurfaceRules.sequence(
                 SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.DEVILS_PALM),
                                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, DEVILS_PALM_SAND)),
                         SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SANDSTONE)),
+                        //SurfaceRules.ifTrue(belowMaxYLevel, SurfaceRules.state((BlockState) DEVILS_PALM_SAND)),
+
 
 
                 // Default to a grass and dirt surface

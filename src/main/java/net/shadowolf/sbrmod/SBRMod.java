@@ -46,7 +46,7 @@ public class SBRMod
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
-        ModTerrablender.registerBiomes();
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -63,6 +63,13 @@ public class SBRMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        // this fix the NullPointerException for TerraBlender.CONFIG
+        event.enqueueWork(() -> {
+            ModTerrablender.registerBiomes();
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+        });
+
+
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
 
@@ -72,7 +79,7 @@ public class SBRMod
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+
 
     }
 
@@ -84,6 +91,7 @@ public class SBRMod
         }
         if(event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
             event.accept(ModBlocks.DEVILS_SAND);
+            event.accept(ModBlocks.DEVILS_SANDSTONE);
         }
     }
 

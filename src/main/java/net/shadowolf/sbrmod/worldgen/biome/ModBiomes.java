@@ -40,7 +40,7 @@ public class ModBiomes {
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
         globalOverworldGeneration(biomeBuilder);
-        BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
+        //BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
         BiomeDefaultFeatures.addExtraGold(biomeBuilder);
 
         //biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.TREES_PLAINS);
@@ -56,12 +56,12 @@ public class ModBiomes {
                 .generationSettings(biomeBuilder.build())
                 .mobSpawnSettings(spawnBuilder.build())
                 .specialEffects((new BiomeSpecialEffects.Builder())
-                        .waterColor(0xe82e3b)
-                        .waterFogColor(0xbf1b26)
-                        .skyColor(0x30c918)
-                        .grassColorOverride(0x7f03fc)
-                        .foliageColorOverride(0xd203fc)
-                        .fogColor(0x22a1e6)
+                        .waterColor(0x8595ab)
+                        .waterFogColor(0x8595ab)
+                        .skyColor(0xecdb76)
+                        .grassColorOverride(0x8f901b)
+                        .foliageColorOverride(0x68a103)
+                        .fogColor(0xeaa624)
                         .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
                         //.backgroundMusic(Musics.createGameMusic(ModSounds.BAR_BRAWL.getHolder().get())).build())
                 .build();

@@ -4,12 +4,14 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SandBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.shadowolf.sbrmod.SBRMod;
+import net.shadowolf.sbrmod.block.custom.DevilSand;
 import net.shadowolf.sbrmod.item.ModItems;
 
 import java.util.function.Supplier;
@@ -19,9 +21,10 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, SBRMod.MOD_ID);
 
     public static final RegistryObject<Block> DEVILS_SAND = registerBlock("devils_sand",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
+            () -> new DevilSand(BlockBehaviour.Properties.copy(Blocks.SAND)));
 
-
+    public static final RegistryObject<Block> DEVILS_SANDSTONE = registerBlock("devils_sandstone",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
